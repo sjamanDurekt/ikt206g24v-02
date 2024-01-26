@@ -1,1 +1,25 @@
+name: Build and test
+
+# On push and new and updated pull requests
+on:
+    push:
+    pull_request:
+        types:
+            - opened
+            - synchronize
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+            - name: Setup .NET 8.0
+              uses: actions/setup-dotnet@v3
+              with:
+                dotnet-version: '8.0.x'
+            - name: Install dependencies
+              run: dotnet restore
+            - name: Build
+              run: dotnet build
 
