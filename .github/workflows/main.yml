@@ -1,6 +1,5 @@
 name: Build and test
 
-# On push and new and updated pull requests
 on:
     push:
     pull_request:
